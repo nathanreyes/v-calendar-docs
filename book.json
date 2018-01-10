@@ -1,0 +1,12 @@
+{
+  "plugins": ["jsfiddle", "copy-code-button", "image-captions"],
+  "pluginsConfig": {
+    "jsfiddle": {
+      "type": "script",
+      "tabs":["html", "js", "result"],
+      "height": "500",
+      "width": "500",
+      "fontColor": "333333"
+    }
+  }
+}

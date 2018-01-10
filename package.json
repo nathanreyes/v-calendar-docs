@@ -1,0 +1,15 @@
+{
+  "name": "v-calendar-docs",
+  "version": "1.0.0",
+  "description": "Documentation for V-Calendar, a calendar plugin for Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nathanreyes@me.com",
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-plugin-copy-code-button": "0.0.2",
+    "gitbook-plugin-jsfiddle": "^1.0.0"
+  }
+}
