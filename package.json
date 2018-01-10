@@ -11,5 +11,8 @@
   "dependencies": {
     "gitbook-plugin-copy-code-button": "0.0.2",
     "gitbook-plugin-jsfiddle": "^1.0.0"
+  },
+  "devDependencies": {
+    "gitbook-cli": "2.3.2"
   }
 }
