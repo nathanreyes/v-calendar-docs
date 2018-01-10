@@ -1,5 +1,5 @@
 {
-  "plugins": ["jsfiddle", "copy-code-button", "image-captions"],
+  "plugins": ["jsfiddle", "copy-code-button"],
   "pluginsConfig": {
     "jsfiddle": {
       "type": "script",
