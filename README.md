@@ -3,7 +3,7 @@
 V-Calendar is a clean and lightweight plugin for displaying simple, attributed calendars in Vue.js. It uses attributes to decorate the calendar with various visual indicators including highlighted date regions, dots, bars, content styles and popovers for simple tooltips and even custom slot content.
 
 <p align='center'>
-  <img src='./gitbook/images/README/welcome-1.png' title='Calendar with attributes' width='500'>
+  <img src='./gitbook/images/readme/welcome-1.png' title='Calendar with attributes' width='500'>
 </p>
 
 Any single attribute may contain one of each object and can be displayed for single dates, date ranges and even complex date patterns like every other Friday, the 15th of every month or the last Friday of every other month.
@@ -15,15 +15,15 @@ It has date picker support out of the box with single date, multiple date and da
 `v-calendar` is the core component. By default, it has a neutral design that should blend nicely within any web application, with various options for configuring the basic layout: 
   * Single or double paned
   * Can be expanded to fill the width of its container
-  * Header can be left, right or center-aligned
-  * Slot support for custom headers and arrows
+  * Header title can be left, right or center-aligned
+  * Slot support for custom header and header subcomponents
   * Navigation transitions (horizontal slide, vertical slide, fade)
 
 Along with the calendar panes, `v-calendar` employs a semantic-inspired navigation pane when the header title is hovered or focused by the user.
 
 <p align='center'>
-  <img src='./gitbook/images/README/calendar-1.png' title='Calendar with attributes' width='250'>
-  <img src='./gitbook/images/README/calendar-2.png' title='Calendar with attributes' width='250'>
+  <img src='./gitbook/images/readme/calendar-1.png' title='Calendar with attributes' width='250'>
+  <img src='./gitbook/images/readme/calendar-2.png' title='Calendar with attributes' width='250'>
 </p>
 
 ### Attributes
@@ -67,7 +67,7 @@ export default {
 };
 ```
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-1.png' width='250'>
+  <img src='./gitbook/images/readme/attributes-1.png' width='250'>
 </p>
 
 To add some contrast to the highlighted date, we can use a content style, which is simply a style object that gets applied to the day content text.
@@ -95,7 +95,7 @@ export default {
 ```
 
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-2.png' width='250'>
+  <img src='./gitbook/images/readme/attributes-2.png' width='250'>
 </p>
 
 Finally, let's see how simple it is to add a popover label (or tooltip) to the calendar when this highlight is hovered over. To do that, we just need to add a popover section to our attribute.
@@ -127,7 +127,7 @@ export default {
 ```
 
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-3.png' width='330'>
+  <img src='./gitbook/images/readme/attributes-3.png' width='330'>
 </p>
 
 #### Where to display
@@ -141,7 +141,7 @@ The second aspect of attributes is specifying where to display them. In the prev
 ```
 
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-4.png' width='250'>
+  <img src='./gitbook/images/readme/attributes-4.png' width='250'>
 </p>
 
 Or date ranges...
@@ -156,7 +156,7 @@ Or date ranges...
 ```
 
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-5.png' width='250'>
+  <img src='./gitbook/images/readme/attributes-5.png' width='250'>
 </p>
 
 Or date patterns.
@@ -168,7 +168,7 @@ Or date patterns.
 ```
 
 <p align='center'>
-  <img src='./gitbook/images/README/attributes-6.png' width='250'>
+  <img src='./gitbook/images/readme/attributes-6.png' width='250'>
 </p>
 
 ## Date Picker
@@ -200,7 +200,7 @@ export default {
 };
 ```
 <p align='center'>
-  <img src='./gitbook/images/README/date-picker-1.png' width='260'>
+  <img src='./gitbook/images/readme/date-picker-1.png' width='260'>
 </p>
 
 Also, a custom slot element can be used to display your own input element. This example uses [Buefy](https://buefy.github.io) for a custom styled input component.
@@ -254,7 +254,7 @@ export default {
 };
 ```
 <p align='center'>
-  <img src='./gitbook/images/README/date-picker-2.png' width='300'>
+  <img src='./gitbook/images/readme/date-picker-2.png' width='300'>
 </p>
 
 You can disable dates, date ranges and date patterns using the following props:
@@ -299,6 +299,7 @@ Vue.use(VCalendar);
 ```
 
 ### 3 Reference in your component templates
+
 ```html
 <template>
   <v-calendar
@@ -310,6 +311,7 @@ Vue.use(VCalendar);
   </v-date-picker>
 </template>
 ```
+
 ```javascript
 <script>
 export default {
@@ -356,6 +358,10 @@ export default {
 </html>
 ```
 
+## Polyfill
+
+TODO - Insert polyfilling steps here
+
 ## Custom Defaults
 
 Custom defaults can be provided on initialization. Note that almost all of these defaults can be overridden by props on `v-calendar` or `v-date-picker` components.
@@ -368,7 +374,8 @@ Vue.use(VCalendar, {
 ```
 
 | Property Name | Type | Description | Default |
-|---------------|-------------|---------|
+| ------------- | ---- | ----------- | ------- |
+| `componentPrefix` | String | Custom prefix to use for plugin components | `"v"` |
 | `firstDayOfWeek` | Number | Day number for the first day of the week (1: Sun - 7: Sat) | `1` |
 | `monthLabels` | Array | Month labels displayed in header (localized) | `["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]` |
 | `weekdayLabels` | Array | Weekday labels displayed in header. Start with Sunday, even if Sunday isn\'t set as the first day of the week. (localized) | `["S", "M", "T", "W", "T", "F", "S"]` |
@@ -384,11 +391,12 @@ Vue.use(VCalendar, {
 | `datePickerSelectColor` | String | Background color of the highlighted select region. | `"#66B3CC"` |
 | `datePickerDragColor` | String | Background color of the highlighted drag region. Only valid when `mode === "range"` | `""#9FCFDF""` |
 | `datePickerShowCaps` | Boolean | Show caps and the end of the highlighted and dragged regions when `mode === "range"` | `false` |
-| `popoverExpanded` | Boolean | Popover wrapper for input or slot is expanded to the full width of it\'s container. | `false` |
+| `datePickerShowPopover` | Boolean | Show popover for dragged and selected regions | `true` |
+| `popoverExpanded` | Boolean | Popover wrapper for input or slot is expanded to the full width of its container. | `false` |
 | `popoverDirection` | String | Direction that popover displays relative to input or slot element (`"bottom"`, `"top"`, `"left"`, `"right"`) | `"bottom"` |
 | `popoverAlign` | String | How the popover is aligned relative to input or slot element (`"left"`, `"right"`, `"top"`, `"bottom"'`) | `"left"` |
 | `popoverVisibility` | String | Visibility state of the popover (`"hover"`, `"focus"`, `"hidden"`, `"visible"`) | `"hover"` |
-| `popoverContentOffset` | String | | `"10px` |
+| `popoverContentOffset` | String | Distance that the popover content is offset from the input or slot element | `"10px` |
 | `popoverKeepVisibleOnInput` | Boolean | Keep the popover visible after a valid input has been selected | `false` |
 | `maxSwipeTime` | Number | Maximum time in milliseconds allowed for a swipe gesture to complete | `300` |
 | `minHorizontalSwipeDistance` | Number | Minimum distance in pixels allowed for a horizontal swipe gesture | `60` |
