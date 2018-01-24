@@ -358,9 +358,9 @@ export default {
 </html>
 ```
 
-## Polyfill
+### Polyfill
 
-TODO - Insert polyfilling steps here
+`v-calendar` is bundled with ES5 support, but 
 
 ## Custom Defaults
 

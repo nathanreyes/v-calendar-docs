@@ -1,5 +1,7 @@
 {
-  "plugins": ["jsfiddle"],
+  "title": "V-Calendar",
+  "author": "nathanreyes@me.com",
+  "plugins": ["jsfiddle", "advanced-emoji"],
   "pluginsConfig": {
     "jsfiddle": {
       "type": "script",

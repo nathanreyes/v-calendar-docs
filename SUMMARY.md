@@ -1,11 +1,35 @@
 ### Getting Started
 
-* [Introduction](readme.md#introduction)
+* [Welcome](readme.md#welcome-to-v-calendar)
 * [Calendar](readme.md#calendar)
 * [Date Picker](readme.md#date-picker)
 * [Installation](readme.md#installation)
-* [Polyfill](readme.md#polyfill)
+  * [Polyfill](readme.md#polyfill)
 * [Custom Defaults](readme.md#custom-defaults)
+
+---
+
+### Attributes
+  * [General](attributes.md#attributes)
+    * [Using `customData`](attributes.md#using-customdata)
+    * [Using `order`](attributes.md#using-order)
+    * [Using `dates`](attributes.md#using-dates)
+      * Simple Dates
+      * Date Regions
+      * Date Patterns
+  * [Highlights](highlights.md)
+  * [Dots](dots.md)
+  * [Bars](bars.md)
+  * [Popovers](popovers.md)
+    * [Labels](popovers.md#labels)
+    * [Slots](popovers.md#slots)
+
+---
+
+### Date Picker
+* Selection Modes
+* Custom Input Slot
+* Disabling Dates
 
 ---
 
@@ -32,40 +56,27 @@
   * Min & Max Pages
   * Transitions -->
 
-### Attributes
-  * [General](attributes.md#general)
-  * Highlights
-    * Properties
-  * Dot Indicators
-    * Properties
-  * Bar Indicators
-    * Properties
-  * Popovers
-    * Tooltips
-    * Custom Slots
-  * Working with Dates
-    * Simple Dates
-    * Date Regions
-    * Date Patterns
-
----
-
-### Date Picker
-* Selection Modes
-* Custom Input Slot
-* Disabling Dates
-
 ---
 
 ### API
-  * Calendar
-    * Props
-    * Events
-    * Slots
-  * Date Picker
-    * Props
-    * Events
-    * Slots
+  * [Theme Styles](api.md#theme-styles)
+  * [Calendar](api.md#calendar)
+    * [Props](api.md#calendar-props)
+    * [Events](api.md#calendar-events)
+    * [Slots](api.md#calendar-slots)
+    * [Page Object](api.md#page-object)
+    * [Day Object](api.md#day-object)
+  * [Date Picker](api.md#date-picker)
+    * [Props](api.md#date-picker-props)
+    * [Events](api.md#date-picker-events)
+    * [Slots](api.md#date-picker-slots)
+  * [Attribute](api.md#attribute)
+    * [Highlight](api.md#highlight)
+    * [Dot](api.md#dot)
+    * [Bar](api.md#bar)
+    * [Popover](api.md#popover)
+    * [Content Style](api.md#content-style)
+    * [Content Hover Style](api.md#content-hover-style)
 
 ---
 

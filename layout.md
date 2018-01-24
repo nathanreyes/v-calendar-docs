@@ -107,29 +107,9 @@ Once the horizontal layout has been determined, we can now target other methods 
 
 ### Using `theme-styles`
 
-The `theme-styles` prop is an object that consists of various styles that can used to control the design and layout for any section of the calendar. Here are the currently supported configurable styles:
+The `theme-styles` prop is an object that consists of various styles that can used to control the design and layout for any section of the calendar.
 
-  | Style | Target Area |
-  | ----- | ----------- |
-  | `wrapper` | Wrapper for both single and double-paned calendars. |
-  | `verticalDivider` | Vertical divider that appears when calendar is double-paned. This style can be overriden by  `headerVerticalDivider`, `weekdayVerticalDivider`, or `weeksVerticalDivider` for those specific sections if necessary. |
-  | `header` | Header section that encapsulates arrows and title. |
-  | `headerTitle` | Header title. |
-  | `headerArrows` | Header arrows that can be styled just like a font. |
-  | `headerVerticalDivider` | Vertical divider that appears in the header section when calendar is double paned. This style overrides `verticalDivider` for the header section. |
-  | `headerHorizontalDivider` | Horizontal divider that appears just below header section. |
-  | `weekdays` | Weekday section that encapsulates all the weekday labels. |
-  | `weekdaysVerticalDivider` | Vertical divider that appears in the weekdays section when calendar is double paned. This style overrides `verticalDivider` for the weekdays section. |
-  | `weekdaysHorizontalDivider` | Horizontal divider that appears just below weekdays section. |
-  | `weeks` | Weeks section that encapsulate all the days of the month. |
-  | `weeksVerticalDivider` | 	Vertical divider that appears in the weeks section when calendar is double paned. This style overrides `verticalDivider` for the weeks section. |
-  | `dayCell` | Day cell that contains day content and any associated attributes. |
-  | `dayCellNotInMonth` | When a day does not lie in the month on which it is displayed (belongs to previous or next month), this style is merged with `dayCell`. |
-  | `dayContent` | Content area within the day cell that contains the day of the month number. |
-  | `dayContentHover` |	When day content is hovered, this style is merged with `dayContent`. |
-  | `dayPopoverContent` | Popover container for attribute popover labels and slot content. |
-  | `dots` | Container for dot indicators. |
-  | `bars` | Container for bar indicators. |
+[Here are the currently supported configurable styles.](api.md#theme-styles)
 
 **Don't be afraid to experiment with styles!** Any style you choose to configure is 'mixed in' with its associated default style, so you can target single properties without affecting the others. For example, we could target the overall wrapper `width` without worrying about affecting its `border` or `backgroundColor`.
 
