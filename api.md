@@ -26,6 +26,23 @@
 
 ---
 
+## Date Patterns
+
+| Property | Type | Description | Range |
+| --- | --- | --- | --- |
+| `days` | Number, Array | Day number from the start or end of the month. | 1 to 31, -1 to -31 |
+| `weekdays` | Number, Array | Day of the week. | 1: Sun to 7: Sat |
+| `ordinalWeekdays` | Object (key: Number / value: Number, Array) | Weekday ordinal position from the start or end of the month. | key: 1 to 6, -1 to -6 / value: 1: Sun to 7: Sat |
+| `weeks` | Number, Array | Week number from the start or end of the month. | 1 to 6, -1 to -6 |
+| `months` | Number, Array | Months of the year. | 1 to 12 |
+| `years` | Number, Array | Year numbers. | 4-digit integer |
+| `dailyInterval` | Number | Interval number of days from the start date (or today when no start date provided). | n > 0 |
+| `weeklyInterval` | Number | Interval number of weeks from the start date (or today). | n > 0 |
+| `monthlyInterval` | Number | Interval number of months from the start date (or today). | n > 0 |
+| `yearlyInterval` | Number | Interval number of years from the start date (or today). | n > 0 |
+
+---
+
 ## Calendar
 
 ### Props {#calendar-props}

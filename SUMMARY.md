@@ -14,19 +14,26 @@
     * [Using `customData`](attributes.md#using-customdata)
     * [Using `order`](attributes.md#using-order)
     * [Using `dates`](attributes.md#using-dates)
-      * Simple Dates
-      * Date Regions
-      * Date Patterns
+      * [Explicit vs Implicit](attributes.md#explicit-vs-implicit)
+      * [Simple Dates](attributes.md#simple-dates)
+      * [Date Ranges](attributes.md#date-ranges)
+      * [Date Patterns](attributes.md#date-patterns)
+  * [Working With Data](data.md#working-with-data)
+    * [Converting Data to Attributes](data.md#step-1-converting-data-to-attributes)
+    * [Handling Events](data.md#step-2-handling-events)
+    * [`DateInfo` & Attributes Lifecycle](data.md#dateinfo--attributes-lifecycle)
   * [Highlights](highlights.md)
   * [Dots](dots.md)
   * [Bars](bars.md)
   * [Popovers](popovers.md)
     * [Labels](popovers.md#labels)
     * [Slots](popovers.md#slots)
+    * [Components](popovers.md#components)
 
 ---
 
 ### Date Picker
+* [Overview](datepicker.md#overview)
 * Selection Modes
 * Custom Input Slot
 * Disabling Dates
@@ -80,4 +87,4 @@
 
 ---
 
-* Changelogs
+* [Changelogs](https://github.com/nathanreyes/v-calendar/blob/master/CHANGELOG.md)

@@ -116,7 +116,7 @@ If you would like to hide the indicator, just set the `hideIndicator` property t
 
 Slots provide a more advanced method to displaying popover content for attributes. You simply create nested slots within `v-calendar` with unique names that can be referenced by popover objects created in your Javascript code.
 
-In the previous example, we used simple popover labels to display todos in the calendar. This is a nice feature, but it would be much more nice to allow the user to mark the todos as completed or edit the description directly in the calendar itself. We can do this using slots.
+In the previous example, we used simple popover labels to display todos in the calendar. This is a nice feature, but it would be *really* nice to allow the user to mark todos as completed or edit the todo description directly in the calendar itself. We can do this using slots.
 
 <p align='center'>
   <img src='./gitbook/images/attributes/popover-slots.png' title='Popovers using slots' width='500'>
@@ -124,9 +124,9 @@ In the previous example, we used simple popover labels to display todos in the c
 
 #### Step 1: Create the slot in the template
 
-First, we need to define a slot to be used by one or more attributes. To do this, we can just create a slot with a name that doesn't clash with one of `v-calendar`'s [existing slot names](api.md#calendar-slots).
+First, we need to define a slot to be used by one or more attribute popovers. To do this, we can just create a slot with a name that doesn't clash with one of `v-calendar`'s [existing slot names](api.md#calendar-slots).
 
-For our example, we'll create a slot with the name of `"todo-row"`. For our benefit, this slot is supplied with these props which we can reference via the `slot-scope` element attribute:
+For our example, we'll create a slot with the name of `"todo-row"`. For our benefit, this slot is supplied with the following props which we can reference via the `slot-scope` element attribute:
 
 | Property | Description |
 | -------- | ----------- |
@@ -145,7 +145,7 @@ For our example, we'll create a slot with the name of `"todo-row"`. For our bene
     <!--===============TODO ROW SLOT==============-->
     <div
       slot='todo-row'
-      slot-scope='{ customData, day }'
+      slot-scope='{ customData }'
       class='todo-row'>
       <!--Todo content-->
       <div class='todo-content'>
@@ -207,7 +207,7 @@ For our example, we'll create a slot with the name of `"todo-row"`. For our bene
 
 #### Step 2: Reference the slot from the attribute's popover object
 
-With the slot created with its custom name, all we need to do is reference that name using the `popover.slot` property.
+Once we have created the uniquely named slot, all we need to do is reference that name from the `popover.slot` property.
 
 ```javascript
 const color = '#ff8080';
@@ -252,10 +252,10 @@ export default {
           popover: {
             slot: 'todo-row', // Matches slot from above
             visibility: 'focus',
-          },
+          }
         }))
       ];
-    },
+    }
   },
   methods: {
     toggleTodoComplete(todo) {
@@ -266,16 +266,16 @@ export default {
     },
     deleteTodo(todo) {
       this.todos = this.todos.filter(t => t !== todo);
-    },
+    }
   },
   directives: {
     focusSelect: {
       inserted(el) {
         el.focus();
         el.select();
-      },
-    },
-  },
+      }
+    }
+  }
 };
 ```
 
@@ -285,8 +285,8 @@ export default {
 
 Let's note a few things from the example above:
 
-  1. We need to use the attribute's `customData` and the `day` from the `slot-scope` in order to properly display and edit the attribute.
-  2. From within the slot, we can call methods to delete and edit the todo because we have the `customData`.
+  1. We reference the attribute's `customData` via the `slot-scope` in order to properly display and edit the todo.
+  2. From within the slot, we can now call methods to delete and edit the todo using the `customData`.
   3. From within the methods, we can mutate the list of todos (when deleting) or the todo itself (when marking complete or editing description).
   4. These edits modify the state of the todos array. The attributes are then re-computed from this array and the UI is updated accordingly.
 
@@ -369,7 +369,11 @@ Finally, we'll just add the methods to
   }
 ```
 
-Below is the CSS for completeness. :tada: :tada: :tada:
+<p align='center'>
+  <img src='./gitbook/images/attributes/popover-slots.png' title='Popovers using slots' width='500'>
+</p>
+
+Awesome! Below is the CSS for completeness. :tada: :tada: :tada:
 
 ```css
 .popover-header {
