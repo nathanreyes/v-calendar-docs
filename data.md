@@ -121,7 +121,7 @@ The attributes in the `attributes` list or `attributesMap` object look much the 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `intersectsDate(*date*)` | Function | Accepts a date expression (`Date` object, range or pattern) and returns the first `DateInfo` object belonging to the attribute that partially intersects the given date, if any. Returns `false` otherwise. |
-| `includesDate(*date*)` | Function | Accepts a date expression (`Date` object, range or pattern) and returns the first `DateInfo` object belonging to the attribute that completely includes (or contains) the given date, if any. Returns `false` otherwise.
+| `includesDate(*date*)` | Function | Accepts a date expression (`Date` object, range or pattern) and returns the first `DateInfo` object belonging to the attribute that completely includes (or contains) the given date, if any. Returns `false` otherwise. |
 | `targetDate` | `DateInfo` | Object with information about the date used by the attribute to display on the current day. |
 
 So...back to the example, now that we have saved the [`day`](api.md#day-object) to the local state variable `selectedDay`, we can then add a new column to display information about the day and all of its attributes.
@@ -156,7 +156,28 @@ Ultimately, `v-calendar` creates its own wrapper object for all of these objects
   * intersects other dates or `DateInfo` objects
   * include (or contain) other dates or `DateInfo` objects
 
-To understand what role `DateInfo` objects play and how they can be used by the client, let's review the lifecycle of attributes from the moment they are passed into `v-calendar` until the time they are exposed back to you as the developer.
+Here is the full structure of the `DateInfo` object:
+
+| Property | Type | Description | Assigned For |
+| -------- | ---- | ----------- | ------------ |
+| `type` | String | Description of wrapped date (`"date"`, `"range"`). | Date, Range |
+| `isDate` | Boolean | Wrapped date is a native `Date` object (`type === "date"`). | Date, Range |
+| `isRange` | Boolean | Wrapped date is a date range with or without patterns included (`type === "range"`). | Date, Range |
+| `date` | Date | The wrapped native `Date` object. | Date |
+| `dateTime` | Number | Result of calling `date.getTime()`. | Date |
+| `start` | Date | Start date of the range. | Range |
+| `startTime` | Number | Result of calling `start.getTime()`. | Range |
+| `end` | Date | End date of the range. | Range |
+| `endTime` | Number | Result of calling `end.getTime()`. | Range |
+| `daySpan` | Number | Number of days between the `start` and `end` dates. | Range |
+| `weekSpan` | Number | Number of weeks between the `start` and `end` dates. | Range |
+| `monthSpan` | Number | Number of months between the `start` and `end` dates. | Range |
+| `yearSpan` | Number | Number of years between the `start` and `end` dates. | Range |
+| `isComplex` | Boolean | Date range includes patterns. | Range |
+| `intersectsDate(Date)` | Function | Accepts a date expression (`Date` object, range or pattern) and returns `true` if it partially intersects the given date. Returns `false` otherwise. | Date, Range |
+| `includesDate(Date)` | Function | Accepts a date expression (`Date` object, range or pattern) and returns `true` if it completely includes (or contains) the given date. Returns `false` otherwise. | Date, Range |
+
+As mentioned before, these objects are accessed via the `attribute.targetDate` property when attributes are passed in events. To further understand what role `DateInfo` objects play and how they can be used by the client, let's review the lifecycle of attributes from the moment they are passed into `v-calendar` until the time they are exposed back to you as the developer via day related events.
 
 <p align='center'>
   <img src='./gitbook/images/data/attributes-diagram.png' title='Attributes lifecycle' width='100%'>

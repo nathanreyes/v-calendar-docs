@@ -229,7 +229,6 @@ All we need to do is add some padding to vertically separate the sections out fr
 export default {
   data() {
     const hSpacing = '15px';
-
     return {
       themeStyles: {
         wrapper: {

@@ -142,27 +142,26 @@
 | ---- | ---- | ----------- | ------- |
 | `value` | Date, Array[Date], Object |	Selected date, dates or date range. |	`null` |
 | `mode` | String | Selection mode: `"single"`, `"multiple"`, `"range"` | `"single"` |
+| `is-required` | Boolean | Prevents the **user** from clearing the selected value. Setting `value = null` still allowed through code. | `false` |
 | `is-inline` | Boolean | Displays calendar inline instead of as a popover. |	`false` |
+| `min-date` | Date | Minimum date selectable by the user. | `undefined` |
+| `max-date` | Date | Maximum date selectable by the user. | `undefined` |
+| `disabled-dates` | Array, Date, Object | Disabled dates or date range objects. | `undefined` |
+| `available-dates` | Array, Date, Object | Available dates or date range objects. All other dates are disabled. | `undefined` |
+| `input-props` | Object | Object with props to apply to the input element. Not applicable for inline date pickers. | [Reference code]() |
+| `date-formatter` | Function | Converts a date object into text. | `date => date.toLocaleDateString()` |
+| `date-parser` | Function | Function used to parse text into a date. | `text => new Date(Date.parse(text))` |
+| `tint-color` | String | Background color of the selected and dragged highlighted regions (`opacity: 0.5` for dragged). This setting is overridden by `select-attribute` and `drag-attribute` if specified. | `"#66B3CC"` |
+| `select-attribute` | Object | Attribute to use for the date selection in all modes. | [Reference code]() |
+| `drag-attribute` | Object | Attribute to use for the dragged selection in "range" mode. | [Reference code]() |
+| `show-caps` | Boolean | Show caps and the end of the highlighted and dragged regions when `mode === "range"` | `false` |
+| `show-popover` | Boolean | Show popover when selected or dragged date regions are hovered. | `true` |
 | `popover-expanded` | Boolean |Popover wrapper for input or slot is expanded to the full width of it's container. | `false` |
 | `popover-direction` | String | Direction that popover displays relative to input or slot element: `"bottom"`, `"top"`, `"left"`, `"right"` | `"bottom"` |
 | `popover-align` | String | How the popover is aligned relative to input or slot element: `"left"`, `"right"`, `"top"`, `"bottom"` | `"left"` |
 | `popover-visibility` | Number | Visibility state of the popover: `"hover"`, `"focus"`, `"hidden"`, `"visible"` | `"hover"`
 | `popover-content-offset` | String | Distance that the popover content is offset from the input or slot element. | `"10px"` |
 | `popover-keep-visible-on-input` | Boolean | Keep the popover visible after a valid input has been selected | `false` |
-| `input-class` | String | Class to apply to input element. Not applicable for inline date-pickers. | `undefined` |
-| `input-style` | Object | Style to apply to input element. Not applicable for inline date-pickers. | `undefined` |
-| `input-placeholder` | String | Placeholder to user for input element. Not applicable in for inline date-pickers. | Single: `"Enter Date"`, Double: `"Date 1, Date 2, ..."`, Range: `"Start Date - End Date"` |
-| `input-read-only` | Boolean | Input element is readonly. Not applicable for inline date-pickers | `false` |
-| `date-formatter` | Function | Converts a date object into text. | `date => date.toLocaleDateString()` |
-| `date-parser` | Function | Function used to parse text into a date. | `text => new Date(Date.parse(text))` |
-| `disabled-dates` | Array, Date, Object | Disabled dates or date range objects. | `undefined` |
-| `available-dates` | Array, Date, Object | Available dates or date range objects. All other dates are disabled. | `undefined` |
-| `select-color` | String | Background color of the selected highlighted region. This setting is overridden by `select-attribute` if specified. | `"#66B3CC"` |
-| `drag-color` | String | Background color of the dragged highlighted region when mode === "range". This setting is overridden by `drag-attribute` if specified. | `"#9FCFDF"` |
-| `show-caps` | Boolean | Show caps and the end of the highlighted and dragged regions when `mode === "range"` | `false` |
-| `show-popover` | Boolean | Show popover when selected or dragged date regions are hovered. | `true` |
-| `select-attribute` | Object | Attribute to use for the date selection in all modes. | Reference code |
-| `drag-attribute` | Object | Attribute to use for the dragged selection in "range" mode. | Reference code |
 
 ### Events {#date-picker-events}
 

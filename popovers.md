@@ -1,5 +1,7 @@
 ## Popovers
 
+[Click here to reference all available popover properties.](api.md#popover)
+
 Popovers provide unique opportunities for users to interact with your web applications. Displaying rich content feedback or supporting inline content editing are two such use cases. Popovers come with lots of configurability built-in, including how and when they are displayed as well as how users should be allowed to interact with them.
 
 Popovers are configured on a per-attribute basis. That is, each attribute can configure its own popover content row. When two or more attributes would like to display popovers on the same day, the two rows are simply concatenated and displayed together in the same popover content window (the order of which is determined by the attribute's `order` property).
@@ -74,7 +76,7 @@ As you can see, all we needed to do was assign a simple string to the `popover.l
 
 > Note: On mobile devices, users will still need to tap on the content since there is no concept of hovering on mobile.
 
-If we want to force the user to click on the day content in order to display the popover, we can simple assign the popover's `visibility` property.
+If we want to force the user to click on the day content in order to display the popover, we can set the popover's `visibility` property to `"focus"`.
 
 ```javascript
     ...
@@ -427,4 +429,129 @@ Awesome! Below is the CSS for completeness. :tada: :tada: :tada:
 }
 ```
 
-[Click here to reference all available popover properties.](api.md#popover)
+### Components
+
+The third option for configuring popovers is through the use of custom components. This is much like the `slot` option, except instead of using a slot with our custom content, we use a dedicated component (often a Single File Component). The key difference is in the way we access the `attribute`, `customData` and `day` objects.
+
+To access these objects, all we need to do is declare them as props on our custom component, and they will get passed in automatically by `v-date-picker` at the appropriate time. Perhaps the best way to understand this is to see how `v-date-picker` implements its native popover component for date selections.
+
+<div class='distributed'>
+  <img src='./gitbook/images/datepicker/popover-range.png' title='Date range popover' width='265'>
+</div>
+
+> Note: This example will walk through how `v-date-picker` implements the native popover component. Replace any reference to `DatePickerDayPopover` with your own component.
+
+#### Step 1: Create the component
+
+Create a new single file component (.vue file). Declare the following props if needed:
+
+| Prop | Type | Description |
+| -------- | ----------- |
+| `attribute` | Object | The attribute object associated with the popover content row. |
+| `customData` | Object | The custom data associated with the attribute above. Shortcut for `attribute.customData`. |
+| `day` | Object | The [day object](api.md#day-object) associated with the popover. |
+
+Here are the template and script sections for the popover used with `v-date-picker`
+
+```html
+<template>
+  <div>
+    <div class='date-label'>
+      <div v-if='dateLabel'>
+        {{ this.dateLabel }}
+      </div>
+      <div v-if='startDateLabel'>
+        {{ this.startDateLabel }}
+      </div>
+      <div v-if='endDateLabel'>
+        {{ this.endDateLabel }}
+      </div>
+    </div>
+    <div
+      v-if='isRange'
+      class='days-nights'>
+      <span>
+        <span
+          class='vc-sun-o'>
+        </span>
+        {{ days }}
+      </span>
+      <span>
+        <span
+          class='vc-moon-o'>
+        </span>
+        {{ nights }}
+      </span>
+    </div>
+  </div>
+</template>
+```
+
+```javascript
+export default {
+  props: {
+    attribute: Object, // This prop will get passed in by `v-date-picker`
+  },
+  computed: {
+    date() {
+      return this.attribute.targetDate;
+    },
+    isDate() {
+      return this.date.isDate;
+    },
+    isRange() {
+      return this.date.isRange;
+    },
+    days() {
+      return this.date.daySpan + 1;
+    },
+    nights() {
+      return this.date.daySpan;
+    },
+    dateLabel() {
+      if (!this.date || !this.date.date) return '';
+      return this.getDateString(this.date.date);
+    },
+    startDateLabel() {
+      if (!this.date || !this.date.start) return '';
+      return this.getDateString(this.date.start);
+    },
+    endDateLabel() {
+      if (!this.date || !this.date.end) return '';
+      return this.getDateString(this.date.end);
+    },
+  },
+  methods: {
+    getDateString(date) {
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      return date.toLocaleDateString(window.navigator.userLanguage || window.navigator.language, options);
+    },
+  },
+};
+```
+
+From the attribute, we can extract information about the date it is associated with through its `targetDate` property. The `targetDate` is a [`DateInfo`](data.md#dateinfo--attributes-lifecycle) object wrapper that contains general information about the the date associated with the attribute. This includes information such as the start date, end date, day and night length spans.
+
+#### Step 2: Import the component
+
+Simply import the component into the file that is serving as the parent or host for the `v-calendar` or `v-date-picker` child components.
+
+```javascript
+import DatePickerDayPopover from './DatePickerDayPopover'; // .vue file
+```
+
+#### Step 3: Assign the component
+
+Finally, when configuring the attribute (`select-attribute` and `drag-attribute` in this case), we assign the component to the popover's `component` property. Most often, if you are using your own component to display the popover content, it would be best to hide the default attribute indicator by setting `hideIndicator` to `true`.
+
+```javascript
+// ...configuring attribute
+attribute: {
+  // Configure the popover
+  popover: {
+    component: DatePickerDayPopover,
+    hideIndicator: true // Don't want to show the indicator
+  },
+  // ...other attribute properties
+}
+```

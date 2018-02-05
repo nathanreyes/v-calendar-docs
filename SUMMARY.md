@@ -4,39 +4,51 @@
 * [Calendar](readme.md#calendar)
 * [Date Picker](readme.md#date-picker)
 * [Installation](readme.md#installation)
-  * [Polyfill](readme.md#polyfill)
+* [Polyfill](readme.md#polyfill)
 * [Custom Defaults](readme.md#custom-defaults)
 
 ---
 
 ### Attributes
-  * [General](attributes.md#attributes)
-    * [Using `customData`](attributes.md#using-customdata)
-    * [Using `order`](attributes.md#using-order)
-    * [Using `dates`](attributes.md#using-dates)
-      * [Explicit vs Implicit](attributes.md#explicit-vs-implicit)
-      * [Simple Dates](attributes.md#simple-dates)
-      * [Date Ranges](attributes.md#date-ranges)
-      * [Date Patterns](attributes.md#date-patterns)
-  * [Working With Data](data.md#working-with-data)
-    * [Converting Data to Attributes](data.md#step-1-converting-data-to-attributes)
-    * [Handling Events](data.md#step-2-handling-events)
-    * [`DateInfo` & Attributes Lifecycle](data.md#dateinfo--attributes-lifecycle)
-  * [Highlights](highlights.md)
-  * [Dots](dots.md)
-  * [Bars](bars.md)
-  * [Popovers](popovers.md)
-    * [Labels](popovers.md#labels)
-    * [Slots](popovers.md#slots)
-    * [Components](popovers.md#components)
+* [Intro](attributes.md#attributes)
+* [Using `customData`](attributes.md#using-customdata)
+* [Using `order`](attributes.md#using-order)
+* [Using `dates`](attributes.md#using-dates)
+  * [Explicit vs Implicit](attributes.md#explicit-vs-implicit)
+  * [Simple Dates](attributes.md#simple-dates)
+  * [Date Ranges](attributes.md#date-ranges)
+  * [Date Patterns](attributes.md#date-patterns)
+* [Working With Data](data.md#working-with-data)
+  * [Converting Data to Attributes](data.md#step-1-converting-data-to-attributes)
+  * [Handling Events](data.md#step-2-handling-events)
+  * [`DateInfo` & Attributes Lifecycle](data.md#dateinfo--attributes-lifecycle)
+* [Highlights](highlights.md)
+* [Dots](dots.md)
+* [Bars](bars.md)
+* [Popovers](popovers.md)
+  * [Labels](popovers.md#labels)
+  * [Slots](popovers.md#slots)
+  * [Components](popovers.md#components)
 
 ---
 
 ### Date Picker
-* [Overview](datepicker.md#overview)
-* Selection Modes
-* Custom Input Slot
-* Disabling Dates
+* [Intro](datepicker.md#date-picker)
+* [Selection Modes](datepicker.md#selection-modes)
+  * [Single Date](datepicker.md#single-date)
+  * [Multiple Dates](datepicker.md#multiple-dates)
+  * [Date Range](datepicker.md#date-range)
+* [How To](datepicker.md#how-to)
+  * [Set Min/Max Dates](datepicker.md#set-minmax-dates)
+  * [Disable Dates & Patterns](datepicker.md#disable-dates--patterns)
+  * [Require Selected Date](datepicker.md#require-selected-date)
+  * [Customize Input Element](datepicker.md#customize-input-element)
+    * [Using `input-props`](datepicker.md#using-input-props)
+    * [Using Custom Slot](datepicker.md#using-custom-slot)
+  * [Customize Attributes](datepicker.md#customize-attributes)
+  * [Customize Selection Popover](datepicker.md#customize-selection-popover)
+  * HTML Form Integration
+  * Handle Date Parsing
 
 ---
 

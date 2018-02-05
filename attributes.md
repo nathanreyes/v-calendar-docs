@@ -1,5 +1,7 @@
 # Attributes
 
+[Click here to reference the API for attributes.](api.md#attribute)
+
 Attributes are what bring `v-calendar` to life. They are simply visual decorators that can be applied to specific calendar dates.
 
 <p align='center'>
