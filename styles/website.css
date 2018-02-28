@@ -4,3 +4,18 @@
   align-items: center;
   margin: 20px 0;
 }
+
+.tag:not(body) {
+  align-items: center;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  display: inline-flex;
+  font-size: 8px;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
+}

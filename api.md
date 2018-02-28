@@ -49,8 +49,7 @@
 
 | Name | Type | Description | Default |
 | ---- | ---- | ----------- | ------- |
-| `month-labels` | Array[String] | Month labels displayed in header. | `["January", ..., "December"]` |
-| `weekday-labels` | Array[String] | Weekday labels displayed in header. Start with Sunday, even if Sunday isn't set as the `firstDayOfWeek`. | `["S", "M", "T", "W", "T", "F", "S", "S"]` |
+| `formats` | Object | Formats to use when display and parsing dates for various calendar sections | Reference code |
 | `nav-visibility` | String | Visibility state of the navigation panel. Use `"hover"` to automatically show when title is hovered on non-touch devices or tapped on touch devices. Use `"focus"` to automatically show when title enters or leaves focus. Use `"visible"` and `"hidden"` for manual control. | `"focus"` |
 | `from-page` | Object | Active page for single paned calendar or the left pane for double paned calendar. Use the `.sync` modifier for two-way binding. | `{ month: *thisMonth*, year: *thisYear* }` |
 | `to-page` | Object | Active page for the right pane for double paned calendar. Use the `.sync` modifier for two-way binding. | `{ month: *nextMonth*, year: *nextMonthYear* }` |

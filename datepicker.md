@@ -108,6 +108,10 @@ You can see how the default popover for the range selection displays the current
 
 Below are guides to performing common tasks with `v-date-picker`.
 
+### Format & Parse Dates
+
+Please reference the [formatting & parsing section of the README](readme.md#formatting--parsing) for steps to customizing the input element's formatting and parsing behavior.
+
 ### Set Min/Max Dates
 
 Set min and max dates by assigning their respective props.
@@ -363,5 +367,3 @@ In fact, you can see how `v-date-picker` configures its own popover component by
 ### HTML Form Integration
 
 If needing to submit the date value to 
-
-### Handle Date Parsing

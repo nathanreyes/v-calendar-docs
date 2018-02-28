@@ -3,8 +3,10 @@
 * [Welcome](readme.md#welcome-to-v-calendar)
 * [Calendar](readme.md#calendar)
 * [Date Picker](readme.md#date-picker)
+* [Formatting & Parsing](readme.md#formatting--parsing)
+  * [Format Tokens](readme.md#format-tokens)
 * [Installation](readme.md#installation)
-* [Polyfill](readme.md#polyfill)
+  * [Polyfill](readme.md#polyfill)
 * [Custom Defaults](readme.md#custom-defaults)
 
 ---
@@ -39,6 +41,7 @@
   * [Multiple Dates](datepicker.md#multiple-dates)
   * [Date Range](datepicker.md#date-range)
 * [How To](datepicker.md#how-to)
+  * [Format & Parse Dates](datepicker.md#format--parse-dates)
   * [Set Min/Max Dates](datepicker.md#set-minmax-dates)
   * [Disable Dates & Patterns](datepicker.md#disable-dates--patterns)
   * [Require Selected Date](datepicker.md#require-selected-date)
@@ -48,7 +51,6 @@
   * [Customize Attributes](datepicker.md#customize-attributes)
   * [Customize Selection Popover](datepicker.md#customize-selection-popover)
   * HTML Form Integration
-  * Handle Date Parsing
 
 ---
 
