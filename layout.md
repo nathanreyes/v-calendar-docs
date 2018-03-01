@@ -16,12 +16,12 @@ With no customization applied, `v-calendar` employs a single-paned, neutrally-th
 ## Header
 
 ### Setting a custom title
-The header title is a simple indicator of what month the user is currently viewing. By default, it uses the `{ full-month-name } { 4-digit-year }` format. If you would like to use a different format, you can provide a custom slot. For example, the following would display `Jan '18` as the header title instead of `January 2018`.
+The header title is a simple indicator of what month the user is currently viewing. By default, it uses the `"MMMM YYYY"` format. If you would like to change the display, you can [provide your own format](readme.md#formatting--parsing) or use a custom slot. When using a custom slot, you can extract out any [`page`](api.md#page-object) properties you might need. For example, the following would display `Jan '18` as the header title instead of `January 2018`.
 
 ```html
 <v-calendar>
-  <span slot='header-title' slot-scope='{ page }'>
-    {{ page.shortMonthLabel }} `{{ page.shortYearLabel }}
+  <span slot='header-title' slot-scope='{ shortMonthLabel, shortYearLabel }'>
+    {{ shortMonthLabel }} `{{ shortYearLabel }}
   </span>
 </v-calendar>
 ```
@@ -29,6 +29,8 @@ The header title is a simple indicator of what month the user is currently viewi
 <div class='distributed'>
   <img src='./gitbook/images/layout/title-slot.png' width='300'>
 </div>
+
+> NOTE: This could more simply be acheived by using the `"MMM 'YY"` format, but you get the point! :)
 
 ### Changing the title position
 

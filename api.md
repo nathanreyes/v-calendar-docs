@@ -80,12 +80,12 @@
 
 | Name | Description | Props (If Scoped) |
 | ---- | ----------- | ----------------- |
-| `header` | Calendar header. Use slots below for specific header sections. | [`page`](#page-object) |
-| `header-title` | Calendar header title. This slot is animated if `title-transition` is assigned. | [`page`](#page-object) |
-| `header-left-button` | Calendar header button on the left side. | [`page`](#page-object) |
-| `header-right-button` | Calendar header button on the right side.	 | [`page`](#page-object) |
-| `day-popover-header` | 	If popover content is visible, this slot displays as the header. | [`day`](#day-object) |
-| `day-popover-footer` | If popover content is visible, this slot displays as the footer. | [`day`](#day-object) |
+| `header` | Calendar header. Use slots below for specific header sections. | [`page` props](#page-object) |
+| `header-title` | Calendar header title. This slot is animated if `title-transition` is assigned. | [`page` props](#page-object) |
+| `header-left-button` | Calendar header button on the left side. | [`page` props](#page-object) |
+| `header-right-button` | Calendar header button on the right side.	 | [`page` props](#page-object) |
+| `day-popover-header` | 	If popover content is visible, this slot displays as the header. | [`day` props](#day-object) |
+| `day-popover-footer` | If popover content is visible, this slot displays as the footer. | [`day` props](#day-object) |
 | *`custom-name`* | Any number of custom named slots that are referenced by attribute popovers. | `attribute: Object`, [`day`](#day-object), `customData: Any` |
 
 #### Page Object
