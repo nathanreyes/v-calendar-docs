@@ -363,6 +363,79 @@ If you would like to provide your own popover, you can do so by configuring the 
 
 In fact, you can see how `v-date-picker` configures its own popover component by [referencing the steps for using a custom component as a popover content row](popovers.md#components).
 
+### Show Clear Margin
+
+When `v-date-picker` appears as a popover, anything below it is covered because of its absolute positioning. If you would like to automatically apply a margin equal to the height of the popover calendar whenever it appears, set `popover-show-clear-margin` to `true`.
+
+#### ***Without Clear Margin***
+
+```html
+<div class='field'>
+  <label class='label'>
+    Name
+  </label>
+  <div class='control'>
+    <input class='input'>
+  </div>
+</div>
+<div class='field'>
+  <label class='label'>
+    Birthday
+  </label>
+  <div class='control'>
+    <ex-date-picker>
+    </ex-date-picker>          
+  </div>
+</div>
+<div class='field'>
+  <label class='label'>
+    Email
+  </label>
+  <div class='control'>
+    <input class='input' type='email'>
+  </div>
+</div>
+```
+
+<div>
+  <img src='./gitbook/images/datepicker/clear-margin-none.png' title='Popover without clear margin' width='550'>
+</div>
+
+#### ***With Clear Margin***
+
+```html
+<div class='field'>
+  <label class='label'>
+    Name
+  </label>
+  <div class='control'>
+    <input class='input'>
+  </div>
+</div>
+<div class='field'>
+  <label class='label'>
+    Birthday
+  </label>
+  <div class='control'>
+    <ex-date-picker
+      popover-show-clear-margin>
+    </ex-date-picker>          
+  </div>
+</div>
+<div class='field'>
+  <label class='label'>
+    Email
+  </label>
+  <div class='control'>
+    <input class='input' type='email'>
+  </div>
+</div>
+```
+
+<div>
+  <img src='./gitbook/images/datepicker/clear-margin-show.png' title='Popover with clear margin' width='550'>
+
+</div>
 
 ### HTML Form Integration
 

@@ -19,10 +19,11 @@
 | `dayCell` | Day cell that contains day content and any associated attributes. | `null` |
 | `dayCellNotInMonth` | When a day does not lie in the month on which it is displayed (belongs to previous or next month), this style is merged with `dayCell`. | `{ opacity: 0.4 }` |
 | `dayContent` | Content area within the day cell that contains the day of the month number. | `null` |
-| `dayContentHover` |	When day content is hovered, this style is merged with `dayContent`. | `null` |
 | `dayPopoverContent` | Popover container for attribute popover labels and slot content. | `{ color: '#333333', fontSize: '.8rem', whiteSpace: 'nowrap' }` |
 | `dots` | Container for dot indicators. | `null` |
 | `bars` | Container for bar indicators. | `null` |
+
+> NOTE: As of v0.8.0, the `dayContentHover` style has been deprecated and you can optionally use a function to define the `dayContent` style. This functions accepts an object parameter with the following properties (`isHovered`, `isFocused`, [`day`](#day-object)). This function should return the configured style.
 
 ---
 
@@ -170,6 +171,10 @@
 | ---- | ----------- | ------ |
 | `input` | New date was selected. | `value: Date, Array[Date], Object` |
 | `drag` | Dragged selection was updated. Only valid when `mode === "range"` | `range: Object` |
+| `popover-will-appear` | Just before popover appears | `undefined` |
+| `popover-did-appear` | Just after popover appears | `undefined` |
+| `popover-will-disappear` | Just before popover disappears. Check param to see if appear was cancelled. | `cancelled: Boolean` |
+| `popover-did-disappear` | Just after popover disappears. Check param to see if appear was cancelled. | `cancelled: Boolean` |
 
 ### Slots {#date-picker-slots}
 
@@ -184,12 +189,11 @@
 | Property | Type | Description | Default |
 | -------- | ---- | ----------- | ------- |
 | `key` | String | Keys uniquely identify an attribute and may determine how animations are applied. | `index` |
-| [`highlight`](#highlight) | Object | Highlight to associate with attribute. | `undefined` |
-| [`dot`](#dot) | Object | Dot to associate with attribute. | `undefined` |
-| [`bar`](#bar) | Object | Bar to associate with attribute. | `undefined` |
-| [`popover`](#popover) | Object | Popover to associate with attribute. | `undefined` |
-| [`contentStyle`](#content-style) | Object | Day content style to associate with the attribute. | `undefined` |
-| [`contentHoverStyle`](#content-hover-style) | Object | This style is merged with the `contentStyle` property when the content is hovered. | `undefined` |
+| [`highlight`](#highlight) | Object, Function | Highlight to associate with attribute. | `undefined` |
+| [`dot`](#dot) | Object, Function | Dot to associate with attribute. | `undefined` |
+| [`bar`](#bar) | Object, Function | Bar to associate with attribute. | `undefined` |
+| [`popover`](#popover) | Object, Function | Popover to associate with attribute. | `undefined` |
+| [`contentStyle`](#content-style) | Object, Function | Day content style to associate with the attribute. | `undefined` |
 | `dates` | Date, Object, Array[Date, Object] | Date or date range objects (patterns supported) to include for the attribute. | `undefined` |
 | `excludeDates` | Date, Object, Array[Date, Object] | Date or date range objects (patterns supported) to exclude. All other dates are included. | `undefined` |
 | `customObject` | Any | Assign any custom data to this property for easy access within event handlers. | `undefined` |
@@ -244,8 +248,9 @@
 
 ### Content Style
 
-Content hover style is just a style object. All normal style properties apply.
+Content style is just a style object. All normal style properties apply.
 
-### Content Hover Style
 
-Content hover style is just a style object. All normal style properties apply.
+### Content Hover Style (Deprecated)
+
+> NOTE: As of *v0.8.0*, the `contentHoverStyle` property has been deprecated in favor of using a function to define the `contentStyle` property. This functions accepts an object parameter with the following properties (`isHovered`, `isFocused`, [`day`](#day-object)). This function should return the configured style.

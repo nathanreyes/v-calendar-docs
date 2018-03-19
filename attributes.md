@@ -13,7 +13,7 @@ As mentioned in the introduction, there are many kinds of attributes you can con
   * Highlights
   * Dots
   * Bars
-  * Content Styles (hovered and nonhovered)
+  * Content Styles
   * Popovers
 
 Any one or more of these attribute types may be combined into one single attribute object, and you can supply as many attributes as you want, like so:
@@ -41,7 +41,6 @@ data() {
         bar: { ... },
         popover: { ... },
         contentStyle: { ... },
-        contentHoverStyle: { ... },
         // Supply your custom data object for later access, if needed
         customData: { ... },
         // We also need some dates to know where to display the attribute
@@ -59,6 +58,53 @@ data() {
   }
 }
 ```
+
+### Using functions
+
+The primary attribute object types (highlights, dots, bars, popovers, content styles) may also be defined as functions that accept an object parameter with the following properties and return a configured object.
+
+| Property Name | Type    | Description |
+| ------------- | ------- | ----------- |
+| `day` | Object | Object with specific information about the day displaying the attribute. |
+| `targetDate` | Object | Date info object. |
+| `isHovered` | Boolean | Day element is currently hovered over. |
+| `isFocused` | Boolean | Day element is currently focused. Only applies when a popover is configured. |
+| `onStart` | Boolean | Day lies on the first day of the attribute's `targetDate`. |
+| `onEnd` | Boolean | Day lies on the last day of the attributes's `targetDate`. |
+
+This allows for creating attributes that are more dynamic and responsive to the user's actions. For example, when the user hovers over the attribute, the function is re-evaluated and the attribute is automatically reconfigured.
+
+Consider this example where an opacity is applied to a bar attribute when it is hovered. Notice that functions are used to define the bar instead of the attribute itself.
+
+```html
+<v-calendar
+  :attributes='attributes'>
+</v-calendar>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      attributes: [
+        {
+          bar({ isHovered }) {
+            return {
+              backgroundColor: "black",
+              opacity: (isHovered && 0.5) || 1
+            };
+          },
+          dates: new Date()
+        }
+      ]
+    };
+  }
+};
+```
+
+<p align='center'>
+  <img src='./gitbook/images/attributes/bar-hover.gif' title='Fade on hover' width='500'>
+</p>
 
 ### Using `customData`
 
