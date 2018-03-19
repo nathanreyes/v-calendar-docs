@@ -65,8 +65,8 @@ The primary attribute object types (highlights, dots, bars, popovers, content st
 
 | Property Name | Type    | Description |
 | ------------- | ------- | ----------- |
-| `day` | Object | Object with specific information about the day displaying the attribute. |
-| `targetDate` | Object | Date info object. |
+| [`day`](api.md#day-object) | Object | Object with specific information about the day displaying the attribute. |
+| [`targetDate`](data.md#dateinfo--attributes-lifecycle) | Object | Date info object currently used to display attribute. |
 | `isHovered` | Boolean | Day element is currently hovered over. |
 | `isFocused` | Boolean | Day element is currently focused. Only applies when a popover is configured. |
 | `onStart` | Boolean | Day lies on the first day of the attribute's `targetDate`. |

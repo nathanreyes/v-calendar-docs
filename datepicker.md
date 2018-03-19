@@ -383,8 +383,9 @@ When `v-date-picker` appears as a popover, anything below it is covered because 
     Birthday
   </label>
   <div class='control'>
-    <ex-date-picker>
-    </ex-date-picker>          
+    <v-date-picker
+      v-model='date'>
+    </v-date-picker>          
   </div>
 </div>
 <div class='field'>
@@ -417,9 +418,10 @@ When `v-date-picker` appears as a popover, anything below it is covered because 
     Birthday
   </label>
   <div class='control'>
-    <ex-date-picker
+    <v-date-picker
+      v-model='date'
       popover-show-clear-margin>
-    </ex-date-picker>          
+    </v-date-picker>          
   </div>
 </div>
 <div class='field'>
