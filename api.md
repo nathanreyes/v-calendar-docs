@@ -5,25 +5,47 @@
 | Style | Target Area | Default |
 | ----- | ----------- | ------- |
 | `wrapper` | Wrapper for both single and double-paned calendars. | `{ backgroundColor: '#fafafa', border: '1px solid #dadada' }` |
-| `verticalDivider` | Vertical divider that appears when calendar is double-paned. This style can be overriden by  `headerVerticalDivider`, `weekdayVerticalDivider`, or `weeksVerticalDivider` for those specific sections if necessary. | `{ borderLeft: '1px solid #dadada' }` |
-| `header` | Header section that encapsulates arrows and title. | `null` |
-| `headerTitle` | Header title. | `null` |
-| `headerArrows` | Header arrows that can be styled just like a font. | `null` |
-| `headerVerticalDivider` | Vertical divider that appears in the header section when calendar is double paned. This style overrides `verticalDivider` for the header section. | `null` |
+| `verticalDivider` | Vertical divider that appears when calendar `is-double-paned`. | `{ borderLeft: '1px solid #dadada' }` |
+| `horizontalDivider` | Horizontal divider that appears when calendar `is-double-paned` and `is-vertical`. | `{ borderTop: '1px solid #dadada' }` |
+| `header` | Header section that encapsulates arrows and title. <sup>[[1]](#themes-note-1)</sup> | `null` |
+| `headerTitle` | Header title. <sup>[[1]](#themes-note-1)</sup> | `null` |
+| `headerArrows` | Header arrows that can be styled just like a font. <sup>[[1]](#themes-note-1)</sup> | `null` |
 | `headerHorizontalDivider` | Horizontal divider that appears just below header section. | `null` |
-| `weekdays` | Weekday section that encapsulates all the weekday labels. | `null` |
-| `weekdaysVerticalDivider` | Vertical divider that appears in the weekdays section when calendar is double paned. This style overrides `verticalDivider` for the weekdays section. | `null` |
+| `weekdays` | Weekday section that encapsulates all the weekday labels. <sup>[[1]](#themes-note-1)</sup> | `null` |
 | `weekdaysHorizontalDivider` | Horizontal divider that appears just below weekdays section. | `null` |
-| `weeks` | Weeks section that encapsulate all the days of the month. | `null` |
-| `weeksVerticalDivider` | 	Vertical divider that appears in the weeks section when calendar is double paned. This style overrides `verticalDivider` for the weeks section. | `null` |
+| `weeks` | Weeks section that encapsulate all the days of the month. <sup>[[1]](#themes-note-1)</sup> | `null` |
 | `dayCell` | Day cell that contains day content and any associated attributes. | `null` |
 | `dayCellNotInMonth` | When a day does not lie in the month on which it is displayed (belongs to previous or next month), this style is merged with `dayCell`. | `{ opacity: 0.4 }` |
-| `dayContent` | Content area within the day cell that contains the day of the month number. | `null` |
+| `dayContent` | Content area within the day cell that contains the day of the month number. <sup>[[2]](#themes-note-2)</sup> | `null` |
 | `dayPopoverContent` | Popover container for attribute popover labels and slot content. | `{ color: '#333333', fontSize: '.8rem', whiteSpace: 'nowrap' }` |
 | `dots` | Container for dot indicators. | `null` |
 | `bars` | Container for bar indicators. | `null` |
+| `navHeader` | Navigation pane header. | `null` |
+| `navHeaderArrows` | Navigation header arrows. | `null` |
+| `navHeaderTitle` | Navigation header title. | `null` |
+| `navMonthCell` | Navigation month cells. <sup>[[3]](#themes-note-3)</sup> | `null` |
+| `navYearCell` | Navigation year cells. <sup>[[3]](#themes-note-3)</sup> | `null` |
 
-> NOTE: As of v0.8.0, the `dayContentHover` style has been deprecated and you can optionally use a function to define the `dayContent` style. This functions accepts an object parameter with the following properties (`isHovered`, `isFocused`, [`day`](#day-object)). This function should return the configured style.
+> <a id='themes-note-1'>[1]</a>  As of v0.9.0, you can use functions to define the `header`, `headerTitle`, `headerArrows`, `weekdays` and `weeks` styles. Functions should accept a [`page`](#page-object) object and return a configured style.
+
+> <a id='themes-note-2'>[2]</a>  As of v0.8.0, the `dayContentHover` style has been deprecated and you can optionally use a function to define the `dayContent` style. This function should accept an object parameter with the following properties (`isHovered`, `isFocused`, [`day`](#day-object)). This function should return the configured style.
+
+> <a id='themes-note-3'>[3]</a>  As of v0.9.0, you can use functions to define the `navMonthCell` and `navYearCell` styles. Functions should accept a [`nav-month-item`](#nav-month-item-properties) object and [`nav-year-item`](#nav-year-item-properties) object, respectively.
+
+### `nav-month-item` Properties
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `month` | Number | Month number of the cell. |
+| `label` | String | Formatted month label per the [`formats`](#calendar-props) prop. |
+| `is-active` | Boolean | Month is selected, or active. |
+| `is-disabled` | Boolean | Month is disabled (ie. not selectable). |
+
+### `nav-year-item` Properties
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `year` | Number | Year number of the cell. |
+| `is-active` | Boolean | Year is selected, or active. |
+| `is-disabled` | Boolean | Year is disabled (ie. not selectable). |
 
 ---
 
@@ -56,9 +78,13 @@
 | `to-page` | Object | Active page for the right pane for double paned calendar. Use the `.sync` modifier for two-way binding. | `{ month: *nextMonth*, year: *nextMonthYear* }` |
 | `min-page` | Object | Earliest page (month, year) that the user can navigate to. | `undefined` |
 | `max-page` | Object | Latest page (month, year) that the user can navigate to. | `undefined` |
+| `min-date` | Date | Date that is used to compute `min-page`. | `undefined` |
+| `max-date` | Date | Date that is used to compute `max-page`. | `undefined` |
 | `is-double-paned` | Boolean | Puts two calendars side by side. When window is constrained only a single calendar is displayed. | `false` |
-| `pane-width` | Number | Width of a single pane, in pixels. | `256` |
+| `is-linked` | Boolean | When `is-double-paned`, navigation panes are linked to consecutive months. | `false` |
+| `is-vertical` | Boolean | When `is-double-paned`, panes are in vertical orientation. | `false` |
 | `is-expanded` | Boolean | Expands calendar to fill the full width of its container. | `false` |
+| `pane-width` | Number | Width of a single pane, in pixels. | `256` |
 | `theme-styles` | Object | A variety of styles that are used to customize different components of the calendar. | [Reference theme styles](#theme-styles) |
 | `title-position` | String | Position of the header title (`"left"`, `"center"`, `"right"`). | `"center"` |
 | `title-transition` | String | Transition type for title when navigating to a new page (`"slide-h"`, `"slide-v"`, `"fade"`, `"none"`). | `"slide-h"` |
@@ -93,6 +119,7 @@
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
+| `position` | Number | Position of the the pane that contains this page (`0`: single-paned, `1`: double-paned, left side, `2`: double-paned, right side). |
 | `month` | Number | Page month number. |
 | `year` | Number | Page year number. |
 | `monthLabel` | String | Page month label as specified by the `monthLabels` prop or locale settings. |
