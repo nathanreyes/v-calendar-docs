@@ -4,7 +4,7 @@ This guide discusses all *breaking changes* made for new versions >= v0.8.0. It 
 
 ## v0.9.0
 
-* Styles for ~~`headerVerticalDivider`~~, ~~`weekdaysVerticalDivider`~~ and ~~`weeksVerticalDivider`~~ removed in favor of defining functions for the `header`, `weekdays` and `weeks` styles like so...
+* Theme styles ~~`headerVerticalDivider`~~, ~~`weekdaysVerticalDivider`~~ and ~~`weeksVerticalDivider`~~ removed in favor of defining functions for the `header`, `weekdays` and `weeks` styles like so...
 
 ```html
 <template>

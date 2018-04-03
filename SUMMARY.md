@@ -11,6 +11,7 @@
 
 ### Migration Guide
 
+* [v0.9.0](migration-guide.md#v090)
 * [v0.8.0](migration-guide.md#v080)
 
 ### Attributes
