@@ -5,6 +5,7 @@
 * [Date Picker](readme.md#date-picker)
 * [Formatting & Parsing](readme.md#formatting--parsing)
   * [Format Tokens](readme.md#format-tokens)
+* [I19n](readme.md#i19n)
 * [Installation](readme.md#installation)
   * [Polyfill](readme.md#polyfill)
 * [Custom Defaults](readme.md#custom-defaults)
@@ -37,8 +38,6 @@
   * [Slots](popovers.md#slots)
   * [Components](popovers.md#components)
 
----
-
 ### Date Picker
 
 * [Intro](datepicker.md#date-picker)
@@ -58,8 +57,6 @@
   * [Customize Selection Popover](datepicker.md#customize-selection-popover)
   * [Show Clear Margin](datepicker.md#show-clear-margin)
   * HTML Form Integration
-
----
 
 ### Layout & Styling
 
