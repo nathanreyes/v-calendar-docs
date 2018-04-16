@@ -110,7 +110,8 @@
 | `header` | Calendar header. Use slots below for specific header sections. | [`page` props](#page-object) |
 | `header-title` | Calendar header title. This slot is animated if `title-transition` is assigned. | [`page` props](#page-object) |
 | `header-left-button` | Calendar header button on the left side. | [`page` props](#page-object) |
-| `header-right-button` | Calendar header button on the right side.	 | [`page` props](#page-object) |
+| `header-right-button` | Calendar header button on the right side.	| [`page` props](#page-object) |
+| `day-content` | Calendar day content cell. | [`day`](#day-object), `attributes: Array`, `contentStyle: Object` |
 | `day-popover-header` | 	If popover content is visible, this slot displays as the header. | [`day` props](#day-object) |
 | `day-popover-footer` | If popover content is visible, this slot displays as the footer. | [`day` props](#day-object) |
 | *`custom-name`* | Any number of custom named slots that are referenced by attribute popovers. | `attribute: Object`, [`day`](#day-object), `customData: Any` |
@@ -176,6 +177,7 @@
 | `disabled-dates` | Array, Date, Object | Disabled dates or date range objects. | `undefined` |
 | `available-dates` | Array, Date, Object | Available dates or date range objects. All other dates are disabled. | `undefined` |
 | `input-props` | Object | Object with props to apply to the input element. Not applicable for inline date pickers. | [Reference code]() |
+| `update-on-input` | Update the picker value after every `input` event. | `false` |
 | `date-formatter` | Function | Converts a date object into text. | `date => date.toLocaleDateString()` |
 | `date-parser` | Function | Function used to parse text into a date. | `text => new Date(Date.parse(text))` |
 | `tint-color` | String | Background color of the selected and dragged highlighted regions (`opacity: 0.5` for dragged). This setting is overridden by `select-attribute` and `drag-attribute` if specified. | `"#66B3CC"` |
@@ -205,9 +207,39 @@
 
 ### Slots {#date-picker-slots}
 
+> Note: Forwards all slots supported by `v-calendar`
+
 | Name | Description | Props (If Scoped) |
 | ---- | ----------- | ----------------- |
-| *`default`* | Default slot to use as the popover anchor for v-date-picker. Most likely will contain the following custom element: `<input :value="props.inputValue" @change.native="props.updateValue($event.target.value)" />` Not applicable to inline date pickers. | `inputValue: String`, `updateValue: Function` |
+| *`default`* | Default slot to use as the popover anchor for v-date-picker. <sup>[[1]](#dp-slots-note-1)</sup> Not applicable to inline date pickers. | `inputValue: String`, `updateValue: Function` |
+
+> <a id='dp-slots-note-1'>[1]</a>  Most likely will contain a variant of the following:
+```html
+<!--Normal slot input example. Update value on input *change* event.-->
+<v-date-picker
+  v-model='myDate'>
+  <input
+    type='text'
+    slot-scope='{ inputValue, updateValue }'
+    :value='inputValue'
+    @change='updateValue(inputValue, { formatInput: true, hidePopover: false })'>
+  <!--Also, update value as the user types-->
+  <input
+    type='text'
+    slot-scope='{ inputValue, updateValue }'
+    :value='inputValue'
+    @input='updateValue($event.target.value, { formatInput: false, hidePopover: false })'
+    @change='updateValue($event.target.value, { formatInput: true, hidePopover: false })'>
+  <!--Also, revert value and hide popover when user types the *escape* key-->
+  <input
+    type='text'
+    slot-scope='{ inputValue, updateValue }'
+    :value='inputValue'
+    @input='updateValue($event.target.value, { formatInput: false, hidePopover: false })'
+    @change='updateValue($event.target.value, { formatInput: true, hidePopover: false })'
+    @keyup.esc='updateValue(myDate, { formatInput: true, hidePopover: true })'>
+</v-date-picker>
+```
 
 ---
 
