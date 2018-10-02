@@ -150,6 +150,18 @@ Let's consider the previous example of setting a min and max dates. Suppose we w
 <div class='distributed'>
   <img src='./gitbook/images/datepicker/disabled-dates.png' title='Disable weekend dates' width='265'>
 </div>
+### Disabling all dates except select few
+
+This is the `available-dates` option, which essentially works the same as the `disabled-dates`option above, but reversed. Here is how that would look with a normal array.
+
+```html
+<v-date-picker
+  v-model='myDate'
+  :available-dates='["2018-10-01", "2018-10-04"]'>
+</v-date-picker>
+```
+
+
 
 ### Require Selected Date
 
@@ -346,7 +358,7 @@ export default {
 
 When the user makes a date selection, a default popover is shown that
   * Displays the selected day when `mode === "single" || mode === "multiple"`
-  
+
 <div class='distributed'>
   <img src='./gitbook/images/datepicker/popover-single.png' title='Single date popover' width='265'>
 </div>
