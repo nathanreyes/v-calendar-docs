@@ -185,6 +185,7 @@
 | `drag-attribute` | Object | Attribute to use for the dragged selection in "range" mode. | [Reference code]() |
 | `show-caps` | Boolean | Show caps and the end of the highlighted and dragged regions when `mode === "range"` | `false` |
 | `show-popover` | Boolean | Show popover when selected or dragged date regions are hovered. | `true` |
+| `show-day-popover` | Boolean | Show day popover when selected or dragged date regions are hovered. | `true` |
 | `popover-expanded` | Boolean |Popover wrapper for input or slot is expanded to the full width of it's container. | `false` |
 | `popover-direction` | String | Direction that popover displays relative to input or slot element: `"bottom"`, `"top"`, `"left"`, `"right"` | `"bottom"` |
 | `popover-align` | String | How the popover is aligned relative to input or slot element: `"left"`, `"right"`, `"top"`, `"bottom"` | `"left"` |
