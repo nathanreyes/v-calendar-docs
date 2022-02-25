@@ -146,8 +146,7 @@ For our example, we'll create a slot with the name of `"todo-row"`. For our bene
     is-double-paned>
     <!--===============TODO ROW SLOT==============-->
     <div
-      slot='todo-row'
-      slot-scope='{ customData }'
+      #todo-row="{ customData }"
       class='todo-row'>
       <!--Todo content-->
       <div class='todo-content'>
